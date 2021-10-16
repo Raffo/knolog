@@ -10,11 +10,14 @@ type Level int32
 
 var verbosity Level
 
-func V(level Level) Verbose                                { return verbosity >= level }
-func (v Verbose) Info(args ...interface{})                 {}
-func (v Verbose) Infoln(args ...interface{})               {}
-func (v Verbose) Infof(format string, args ...interface{}) {}
-func (v Verbose) Enabled() bool                            { return false }
+func V(level Level) Verbose                                      { return verbosity >= level }
+func (v Verbose) Info(args ...interface{})                       {}
+func (v Verbose) Infoln(args ...interface{})                     {}
+func (v Verbose) Infof(format string, args ...interface{})       {}
+func (v Verbose) Enabled() bool                                  { return false }
+func (v Verbose) InfoS(msg string, keysAndValues ...interface{}) {}
+func (v Verbose) Error(err error, msg string, args ...interface{}) {}
+func (v Verbose) ErrorS(err error, msg string, keysAndValues ...interface{}) {}
 
 func Info(args ...interface{})                    {}
 func InfoDepth(depth int, args ...interface{})    {}
