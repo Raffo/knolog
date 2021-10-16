@@ -14,6 +14,7 @@ func V(level Level) Verbose                                { return verbosity >=
 func (v Verbose) Info(args ...interface{})                 {}
 func (v Verbose) Infoln(args ...interface{})               {}
 func (v Verbose) Infof(format string, args ...interface{}) {}
+func (v Verbose) Enabled() bool                            { return false }
 
 func Info(args ...interface{})                    {}
 func InfoDepth(depth int, args ...interface{})    {}
